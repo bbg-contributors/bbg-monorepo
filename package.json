@@ -1,0 +1,43 @@
+{
+  "name": "@bakabg/monorepo",
+  "version": "0.0.1",
+  "packageManager": "pnpm@7.9.5",
+  "author": "The bbg contributors",
+  "description": "",
+  "keywords": [],
+  "homepage": "https://github.com/bbg-contributors/bbg-monorepo#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bbg-contributors/bbg-monorepo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bbg-contributors/bbg-monorepo/issues"
+  },
+  "license": "MIT",
+  "scripts": {
+    "build": "rimraf packages/*/dist && pnpm -r run build",
+    "watch": "pnpm -r --parallel run watch",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "prepublishOnly": "nr build",
+    "release": "bumpp package.json packages/*/package.json --commit --push --tag && pnpm publish",
+    "test": "vitest",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@antfu/ni": "^0.17.2",
+    "@babel/types": "^7.18.10",
+    "@so1ve/eslint-config": "^0.28.1",
+    "@types/node": "^18.7.6",
+    "bumpp": "^8.2.1",
+    "eslint": "^8.22.0",
+    "jiti": "^1.14.0",
+    "pnpm": "^7.9.0",
+    "puild": "^1.2.3",
+    "rimraf": "^3.0.2",
+    "tsx": "^3.8.2",
+    "typescript": "^4.7.4",
+    "vite": "^3.0.8",
+    "vitest": "^0.22.0"
+  }
+}
